@@ -1,4 +1,7 @@
 # VRCOSCChatbox
+
+↓ This Program Edit From ↓
+
 Simple app that sends messages to VRChat's chatbox via VRC OSC.
 
 - Easy to setup, easy to use
