@@ -27,21 +27,11 @@ namespace VRCOSC
     /// </summary>
     public partial class MainWindow : Window
     {
-        int PCore = 8;
-        int ECore = 12;
         string VRAM = "?";
-
-        private string vrcAddress = "127.0.0.1";
-        private int vrcPort = 9000;
 
         private string vramUsageText = "\r\nVRAM: Loading...";
         private string currentText = string.Empty;
         bool Close = false;
-
-        private string strFilePath = "PSCFG";//获取INI文件路径
-        private string strSec = "Record"; //INI节点名字
-        [DllImport("kernel32")]
-        private static extern int GetPrivateProfileString(string section, string key, string def, StringBuilder retval, int size, string filePath);
 
         public string CurrentText
         {
@@ -60,13 +50,6 @@ namespace VRCOSC
         protected void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        private string ContentValue(string Section, string key)
-        {
-            StringBuilder temp = new StringBuilder(1024);
-            GetPrivateProfileString(Section, key, "", temp, 1024, strFilePath);
-            return temp.ToString();
         }
 
         public MainWindow()
@@ -114,7 +97,6 @@ namespace VRCOSC
                     thread2.Start();
                     Thread.Sleep(4000);
                 }
-
             });
             thread.Start();
         }
@@ -236,7 +218,6 @@ namespace VRCOSC
         {
             Close = true;
         }
-
 
     }
 }
