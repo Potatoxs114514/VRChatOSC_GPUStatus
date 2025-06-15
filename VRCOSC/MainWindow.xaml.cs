@@ -138,7 +138,7 @@ namespace VRCOSC
                 //GPU
                 var gpuCounters = GetGPUCounters();
                 var gpuUsage = GetGPUUsage(gpuCounters); if (gpuUsage > 99) gpuUsage = 99;
-                var gpuBar = "▐";
+                var gpuBar = " ";
                 for (int i = 1; i < gpuUsage; i += 11)
                 {
                     gpuBar += "█";
